@@ -83,3 +83,15 @@ const booksByCategory = [
     ],
   },
 ];
+
+function authors() {
+  authorsList = [];
+  booksByCategory.forEach(function (categoria) {
+    categoria.books.forEach(function (livros) {
+      authorsList.push(livros.author);
+    });
+  });
+  authorsList = [new Set(authorsList)];
+  return authorsList;
+}
+console.log(authors());
