@@ -84,15 +84,26 @@ const booksByCategory = [
   },
 ];
 
+//Criação da função countBooksInCategory
 function countBooksInCategory() {
-  booksCounted = {};
+  //Criação do objeto que irá armazenar a contagem de livros por categoria
+  let booksCounted = {};
+
+  //Uso do loop forEach para que seja visto cada categoria
   booksByCategory.forEach(function (categoria) {
-    count = 0;
+    //Uso de um contador count para realizar a contagem dos livros, reiniciada a cada volta do loop
+    let count = 0;
+
+    //Uso de um loop forEach para contar, incrementando no count, cada um dos elementos de cada vetor books em cada categoria
     categoria.books.forEach(function (livros) {
       count += 1;
     });
+
+    //Adicionando a chave, definida pelo nome da categoria, com o valor vindo do count
     booksCounted[categoria.category] = count;
   });
   return booksCounted;
 }
+
+//Imprime o objeto booksCounted, com cada chave determinada pelo nome de sua categoria, com o valor da quantidade de livros em sua categoria
 console.log(countBooksInCategory());

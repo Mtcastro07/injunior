@@ -84,14 +84,23 @@ const booksByCategory = [
   },
 ];
 
+//Criação da função authors
 function authors() {
-  authorsList = [];
+  //Criação de um vetor vazio, que irá amazenar o nome dos autores
+  let authorsList = [];
+
+  //Uso do loop forEach, que irá acessar cada categoria de booksByCategory
   booksByCategory.forEach(function (categoria) {
+    //Acesso do vetor books de cada categoria
     categoria.books.forEach(function (livros) {
-      authorsList.push(livros.author);
+      //Verifica se ja há o autor dentro do vetor com o uso da função includes
+      if (authorsList.includes(livros.author) == false) {
+        authorsList.push(livros.author);
+      }
     });
   });
-  authorsList = [new Set(authorsList)];
   return authorsList;
 }
+
+//Imprimindo no console o array com cada nome dos autores
 console.log(authors());
